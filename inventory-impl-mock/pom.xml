@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>bookshelf-osgi-example</artifactId>
+        <groupId>bookshelf</groupId>
+        <version>1.5</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>bookshelf</groupId>
+    <artifactId>inventory-impl-mock</artifactId>
+    <version>1.5</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.1.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-Category>sample</Bundle-Category>
+                        <Bundle-SymbolicName>${artifactId}</Bundle-SymbolicName>
+                        <Bundle-Activator>
+                            com.doma.vlado.bookshelf.inventory.impl.mock.activator.BookInventoryMockImplBundleActivator
+                        </Bundle-Activator>
+                        <Export-Package>
+                            com.doma.vlado.bookshelf.inventory.impl.mock
+                        </Export-Package>
+                        <Private-Package>
+                            com.doma.vlado.bookshelf.inventory.impl.mock.activator
+                        </Private-Package>
+                    </instructions>
+                    <remoteOBR>repo-rel</remoteOBR>
+                    <prefixUrl>
+                        file:///C:\Users\ovca\Documents\osgi\releases
+                    </prefixUrl>
+                    <ignoreLock>true</ignoreLock>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <inherited>true</inherited>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <packaging>pom</packaging>
+    <name>Bookshelf Inventory Impl - Mock</name>
+    <description>
+        Memory-based mock implementation of the Bookshelf Inventory API
+    </description>
+    <dependencies>
+        <dependency>
+            <groupId>bookshelf</groupId>
+            <artifactId>
+                bookshelf-inventory-api
+            </artifactId>
+            <version>1.5.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+    </dependencies>
+</project>

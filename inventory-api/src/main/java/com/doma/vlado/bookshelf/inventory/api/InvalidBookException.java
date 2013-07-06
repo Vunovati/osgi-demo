@@ -8,4 +8,7 @@ package com.doma.vlado.bookshelf.inventory.api;
  * To change this template use File | Settings | File Templates.
  */
 public class InvalidBookException extends Exception {
+    public InvalidBookException(String s) {
+        //To change body of created methods use File | Settings | File Templates.
+    }
 }

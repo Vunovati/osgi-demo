@@ -8,4 +8,7 @@ package com.doma.vlado.bookshelf.inventory.api;
  * To change this template use File | Settings | File Templates.
  */
 public class BookNotFoundException extends Exception {
+    public BookNotFoundException(String isbn) {
+
+    }
 }
